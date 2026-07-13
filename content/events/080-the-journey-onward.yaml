@@ -1,0 +1,22 @@
+id: the-journey-onward
+date: 1969-07-16
+dateLabel: "July 1969"
+title: "The Journey Onward"
+location: { lat: 28.5729, lng: -80.649, zoom: 9, label: "Cape Canaveral, USA" }
+side: auto
+media:
+  - type: text
+    text: >
+      A closing thought, dedication, or call to action can round out the
+      timeline — or the story can simply keep growing from here.
+body: >
+  Placeholder finale. Add new events by dropping YAML files into
+  content/events — they slot into the timeline, the map, and the scrubber
+  automatically.
+links:
+  - { label: "How to add content", url: "https://github.com" }
+narration:
+  pose: pointing
+  text: "That's the tour! Everything you scrolled past is a placeholder waiting for the real story."
+  extra:
+    - "To add an event, copy any YAML file in content/events, give it a new number, and edit away."

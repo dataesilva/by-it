@@ -1,0 +1,14 @@
+# Site-wide settings. Everything here is placeholder text — edit freely.
+title: "By It"
+tagline: "An interactive journey through time"
+intro: >
+  This is the placeholder introduction. It sets the scene for the story the
+  timeline tells: who it is about, why it matters, and what the reader should
+  look out for. Scroll down to begin the journey — the map above will follow
+  along, and your guide will meet you on the way.
+
+# Initial map view before any event is active.
+map:
+  lat: 30
+  lng: 10
+  zoom: 3

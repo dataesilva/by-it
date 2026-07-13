@@ -1,0 +1,16 @@
+id: distant-shores
+date: 1925-04-01
+dateLabel: "1925"
+title: "Distant Shores"
+location: { lat: -34.6037, lng: -58.3816, zoom: 10, label: "Buenos Aires, Argentina" }
+side: auto
+media:
+  - type: image
+    src: media/placeholder-4.svg
+    caption: "Placeholder — the map flies across the Atlantic for this one."
+body: >
+  Placeholder for a far-away event, here to show the map making a long,
+  satisfying flight between continents.
+narration:
+  pose: default
+  text: "Watch the map on jumps like this — long flights give the reader a feel for distance."

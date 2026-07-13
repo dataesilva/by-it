@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 360" width="800" height="360">
+  <rect width="800" height="360" fill="#dbe4ec"/>
+  <path d="M0 260 Q200 200 400 250 T800 240 L800 360 L0 360 Z" fill="#8fb0c9"/>
+  <path d="M0 300 Q250 250 500 295 T800 285 L800 360 L0 360 Z" fill="#6b93b3"/>
+  <rect x="340" y="150" width="16" height="90" fill="#4a6a85"/>
+  <path d="M348 150 L348 100 L420 130 Z" fill="#e8eef4"/>
+  <text x="400" y="60" text-anchor="middle" font-family="Georgia, serif" font-size="24" fill="#4a6a85">Placeholder image 3 (wide)</text>
+</svg>

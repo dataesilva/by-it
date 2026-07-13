@@ -1,0 +1,20 @@
+id: worlds-connected
+date: 1869-11-17
+dateLabel: "November 1869"
+title: "Worlds Connected"
+location: { lat: 30.5852, lng: 32.2654, zoom: 8, label: "Suez, Egypt" }
+side: auto
+media:
+  - type: image
+    src: media/placeholder-3.svg
+    caption: "Placeholder — wide images work too; cards grow to fit their content."
+  - type: text
+    text: >
+      A pull-quote or excerpt can sit alongside other media in the same card.
+      Media items stack in the order they appear in the YAML file.
+body: >
+  Placeholder for an event with multiple media items — an image followed by a
+  quoted excerpt.
+links:
+  - { label: "Primary source (placeholder)", url: "https://archive.org" }
+  - { label: "Related map (placeholder)", url: "https://www.davidrumsey.com" }

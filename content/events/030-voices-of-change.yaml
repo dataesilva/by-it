@@ -1,0 +1,16 @@
+id: voices-of-change
+date: 1848-03-13
+dateLabel: "Spring 1848"
+title: "Voices of Change"
+location: { lat: 48.2082, lng: 16.3738, zoom: 11, label: "Vienna, Austria" }
+side: auto
+media:
+  - type: embed
+    src: "https://www.youtube-nocookie.com/embed/jNQXAC9IVRw"
+    caption: "Placeholder embed — any iframe source works: YouTube, archive viewers, maps."
+body: >
+  Placeholder for an event told through embedded media. The embed block wraps
+  any iframe in a responsive 16:9 frame.
+narration:
+  pose: thinking
+  text: "Embeds like this can hold video, digitized archives, 3D viewers — anything with an iframe."

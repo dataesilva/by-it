@@ -1,0 +1,15 @@
+# The guide character who narrates the timeline.
+# To add a pose: drop an image in public/media/character/ and add a line under
+# poses. Event files reference poses by key (narration.pose).
+name: Guide
+poses:
+  default: media/character/default.svg
+  pointing: media/character/pointing.svg
+  thinking: media/character/thinking.svg
+
+# Spoken in the intro section, before the first event.
+intro: >
+  Hello! I'm your guide — a placeholder for the character you'll design.
+  Scroll on and I'll walk you through the story, pointing out what matters
+  along the way. Click me whenever you see the little dot: it means I have
+  more to say.

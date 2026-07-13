@@ -1,0 +1,18 @@
+id: patterns-emerge
+date: 1885-02-26
+dateLabel: "1885"
+title: "Patterns Emerge"
+location: { lat: 52.52, lng: 13.405, zoom: 10, label: "Berlin, Germany" }
+side: auto
+media:
+  - type: canvas
+    caption: "Placeholder canvas — custom visualizations, generative art, or interactive pieces plug in here."
+body: >
+  Placeholder for an event with a live canvas. The canvas block is the hook
+  for anything hand-coded: data visualizations, animations, small
+  interactives.
+narration:
+  pose: pointing
+  text: "That wave is drawn live on a canvas element — your own interactive pieces go in blocks like it."
+  extra:
+    - "Each canvas media item gets its own component, so different events can run completely different code."

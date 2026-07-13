@@ -1,0 +1,72 @@
+/* ---------------------------------------------------------------------------
+   Design tokens — the theming surface for the whole site. Iterate on look and
+   feel here first; components read these variables instead of hard-coding.
+--------------------------------------------------------------------------- */
+:root {
+  /* Palette (placeholder — swap freely) */
+  --color-bg: #faf7f2;
+  --color-ink: #2b2620;
+  --color-muted: #8a8177;
+  --color-card: #ffffff;
+  --color-accent: #b3542d;        /* timeline spine, active states */
+  --color-accent-soft: #e9c9b8;
+  --color-bubble: #fff8ec;
+  --color-bubble-border: #d9c9a8;
+
+  /* Type */
+  --font-display: Georgia, 'Times New Roman', serif;
+  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Layout */
+  --map-height: 35vh;
+  --card-width: min(440px, 44vw);
+  --event-gap: 22vh;              /* vertical breathing room between events */
+
+  /* Guide character */
+  --guide-size: 104px;
+  --guide-bubble-width: 240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  line-height: 1.2;
+}
+
+img,
+video,
+canvas,
+iframe {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  :root {
+    --map-height: 28vh;
+    --card-width: 86vw;
+    --event-gap: 14vh;
+    --guide-size: 76px;
+  }
+}

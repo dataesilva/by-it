@@ -1,0 +1,13 @@
+id: motion-pictures
+date: 1901-09-06
+dateLabel: "Turn of the century"
+title: "Motion Pictures"
+location: { lat: 40.7128, lng: -74.006, zoom: 10, label: "New York, USA" }
+side: auto
+media:
+  - type: video
+    src: "https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4"
+    caption: "Placeholder video (CC0 sample) — local files in public/media/ work the same way."
+body: >
+  Placeholder for an event carried by native video. Drop an .mp4 in
+  public/media/ and reference it by relative path, or point at a hosted file.

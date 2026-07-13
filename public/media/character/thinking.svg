@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 140" width="130" height="140">
+  <!-- Placeholder guide character, thinking pose. Swap for final art. -->
+  <ellipse cx="60" cy="132" rx="34" ry="6" fill="#000" opacity="0.12"/>
+  <path d="M60 18 C88 18 100 44 100 74 C100 108 82 126 60 126 C38 126 20 108 20 74 C20 44 32 18 60 18 Z" fill="#e8a75a"/>
+  <path d="M60 18 C88 18 100 44 100 74 L20 74 C20 44 32 18 60 18 Z" fill="#f2c184"/>
+  <path d="M40 64 Q46 58 52 64" stroke="#2b2620" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+  <circle cx="74" cy="66" r="6" fill="#2b2620"/>
+  <circle cx="76" cy="64" r="2" fill="#fff"/>
+  <path d="M50 92 L70 90" stroke="#2b2620" stroke-width="3.5" stroke-linecap="round"/>
+  <path d="M84 94 Q96 100 92 86" stroke="#e8a75a" stroke-width="12" fill="none" stroke-linecap="round"/>
+  <circle cx="104" cy="34" r="5" fill="#b3542d" opacity="0.5"/>
+  <circle cx="114" cy="22" r="7" fill="#b3542d" opacity="0.7"/>
+  <path d="M40 22 Q60 2 80 22 Q70 14 60 14 Q50 14 40 22 Z" fill="#b3542d"/>
+</svg>
