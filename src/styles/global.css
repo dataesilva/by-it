@@ -19,8 +19,19 @@
 
   /* Layout */
   --map-height: 35vh;
-  --card-width: min(440px, 44vw);
   --event-gap: 22vh;              /* vertical breathing room between events */
+  --fragment-gap: 1.75rem;        /* space between fragments within one scene */
+
+  /* Fragment width steps (contained wide column — never edge-to-edge).
+     Authors reference these by keyword: place: { width: narrow|medium|wide|full } */
+  --w-narrow: 320px;
+  --w-medium: 480px;
+  --w-wide: 720px;
+  --w-full: 960px;
+
+  /* Scroll-reveal motion */
+  --reveal-shift: 2.5rem;
+  --reveal-duration: 0.7s;
 
   /* Guide character */
   --guide-size: 104px;
@@ -62,11 +73,63 @@ a {
   color: var(--color-accent);
 }
 
+/* ---------------------------------------------------------------------------
+   Fragment placement + scroll reveal
+   Fragments carry their placement as inline custom properties (--frag-max,
+   --frag-align, --frag-offset) so these rules — and the mobile override below —
+   stay in control. The `reveal` action (src/lib/actions/reveal.js) toggles
+   `.is-visible`; direction comes from the reveal-left/right/center class.
+--------------------------------------------------------------------------- */
+.frag {
+  width: var(--frag-max, 100%);
+  max-width: 100%;
+  align-self: var(--frag-align, flex-start);
+  margin-top: var(--frag-offset, 0);
+}
+
+.reveal {
+  opacity: 0;
+  transition: opacity var(--reveal-duration) ease, transform var(--reveal-duration) ease;
+  will-change: opacity, transform;
+}
+
+.reveal.reveal-left {
+  transform: translateX(calc(-1 * var(--reveal-shift)));
+}
+
+.reveal.reveal-right {
+  transform: translateX(var(--reveal-shift));
+}
+
+.reveal.reveal-center {
+  transform: translateY(var(--reveal-shift));
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    transition: opacity 0.4s ease;
+    transform: none;
+  }
+}
+
 @media (max-width: 768px) {
   :root {
     --map-height: 28vh;
-    --card-width: 86vw;
     --event-gap: 14vh;
     --guide-size: 76px;
+  }
+
+  /* On small screens every fragment becomes a single centered column — the
+     literal values here beat the inline custom properties above. */
+  .frag {
+    width: 100%;
+    max-width: 100%;
+    align-self: stretch;
+    margin-top: 0;
   }
 }

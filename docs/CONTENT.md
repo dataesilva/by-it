@@ -39,6 +39,65 @@ narration:                # optional — the guide appears at this event
     - "A third line."
 ```
 
+The `media` + `body` + `links` fields above are the **simple form** — quick to
+write, and still fully supported. Under the hood they become one flowing stream
+of *fragments*. As each fragment scrolls into view it slides in from its side (or
+fades up if centered). For richer, hand-placed layouts, use the flexible form
+below.
+
+## Laying out an event (the flexible form)
+
+Instead of `media` / `body` / `links`, list every piece of content in one
+ordered `content:` stream, and optionally place each one. This is what lets text
+float at different spots and media claim more room.
+
+```yaml
+id: my-event
+date: 1848-03-15
+dateLabel: "Spring 1848"
+title: "Event Title"
+location: { lat: 41.88, lng: -87.63, zoom: 10, label: "Chicago" }
+layout: split             # optional preset (see below) — sets smart defaults
+titlePlace: { side: left } # optional — where the heading floats
+content:                  # ordered fragments; each may carry a `place`
+  - type: image
+    src: media/photo.png
+    caption: "Given real room now."
+    place: { side: right, width: wide }
+  - type: text
+    variant: prose        # prose (default) or quote (pull-quote styling)
+    text: "A paragraph that floats on the left, narrower than the image."
+    place: { side: left, width: narrow, offsetY: 4 }
+  - type: links
+    items:
+      - { label: "Further reading", url: "https://example.org" }
+    place: { side: right, width: narrow }
+narration: { pose: pointing, text: "..." }   # unchanged
+```
+
+### `place` — per-fragment position
+
+| field    | values | meaning |
+|----------|--------|---------|
+| `side`   | `left` \| `center` \| `right` | horizontal anchor within the content column |
+| `width`  | `narrow` \| `medium` \| `wide` \| `full` | size cap (≈320 / 480 / 720 / 960px — always within page margins) |
+| `offsetY`| a number | vertical nudge in `rem` (negative pulls up) to stagger or overlap fragments |
+
+Any field you omit falls back to the layout preset, which falls back to a
+sensible per-type default (media → `wide`, text → `medium`, links → `narrow`).
+
+### `layout` — presets that set the defaults
+
+| preset | arrangement |
+|--------|-------------|
+| `stack` (default) | fragments alternate left/right down the scene |
+| `split` | media on the scene's side, text/links on the opposite side |
+| `hero`  | the first fragment dominates the middle; the rest alternate beneath |
+| `scatter` | fragments alternate sides **and** take a staggered `offsetY` for a floating collage |
+
+On phones (≤768px) every fragment collapses to a single centered column and
+`place`/`offsetY` are ignored — the layout is desktop/laptop enhancement only.
+
 ### Media types
 
 | type   | fields | notes |
@@ -46,7 +105,7 @@ narration:                # optional — the guide appears at this event
 | image  | `src`, `caption`, `alt` | png/jpg/svg/webp under `public/` or a URL |
 | video  | `src`, `caption`, `poster` | native `<video>` player |
 | embed  | `src`, `caption`, `aspectRatio` | any iframe URL (YouTube, archive viewers, maps); default aspect 16/9 |
-| text   | `text`, `caption` | styled pull-quote / excerpt |
+| text   | `text`, `variant`, `caption` | `variant: prose` (default) floats a paragraph; `variant: quote` styles a pull-quote |
 | canvas | `caption` | runs `src/lib/media/CanvasBlock.svelte` — the hook for custom interactive pieces |
 
 **Adding a new media type:** create a component in `src/lib/media/` (copy

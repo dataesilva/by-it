@@ -34,7 +34,9 @@
 
 <style>
   .media {
-    margin: 0.75rem 0;
+    /* The scene's own gap spaces fragments; media just fills its fragment. */
+    margin: 0;
+    width: 100%;
   }
 
   figcaption {

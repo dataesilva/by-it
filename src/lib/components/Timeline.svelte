@@ -4,7 +4,7 @@
   import { events } from '../data.js'
   import { activeEventIndex } from '../stores.js'
   import TimelinePath from './TimelinePath.svelte'
-  import EventCard from './EventCard.svelte'
+  import EventScene from './EventScene.svelte'
 
   // Cards alternate sides unless an event pins itself with `side: left|right`.
   const sides = events.map((e, i) =>
@@ -16,17 +16,20 @@
   let anchors = $state([])
   let size = $state({ width: 0, height: 0 })
 
-  // The spine anchors to a point beside each card (the inner edge, toward
-  // the page center), so the curve weaves between left and right cards.
+  // Scenes span the full content width, so the spine can no longer hug a card
+  // edge. Instead each anchor sits at the scene's vertical midpoint, pulled
+  // horizontally toward the side the scene leans — left scenes ~30% across,
+  // right scenes ~70% — so the curve still weaves back and forth.
   function measure() {
     if (!container) return
     const crect = container.getBoundingClientRect()
     size = { width: container.clientWidth, height: container.scrollHeight }
     const points = stepEls.filter(Boolean).map((el, i) => {
-      const r = el.querySelector('.card').getBoundingClientRect()
-      const inset = 36
+      const scene = el.querySelector('.scene') ?? el
+      const r = scene.getBoundingClientRect()
+      const bias = sides[i] === 'left' ? 0.3 : 0.7
       return {
-        x: sides[i] === 'left' ? r.right - crect.left + inset : r.left - crect.left - inset,
+        x: size.width * bias,
         y: r.top - crect.top + r.height / 2,
       }
     })
@@ -63,7 +66,7 @@
 
   {#each events as event, i (event.id)}
     <div class="event-step {sides[i]}" id="event-{i}" bind:this={stepEls[i]}>
-      <EventCard {event} side={sides[i]} active={$activeEventIndex === i} />
+      <EventScene {event} side={sides[i]} active={$activeEventIndex === i} />
     </div>
   {/each}
 </div>
@@ -76,31 +79,15 @@
     padding: var(--event-gap) 1.5rem;
   }
 
+  /* Scenes fill the content width; the left/right lean is expressed by how the
+     scene's own fragments align themselves, not by justifying the whole step. */
   .event-step {
     position: relative;
-    display: flex;
     margin-bottom: var(--event-gap);
     z-index: 1;
   }
 
   .event-step:last-child {
     margin-bottom: 0;
-  }
-
-  .event-step.left {
-    justify-content: flex-start;
-  }
-
-  .event-step.right {
-    justify-content: flex-end;
-  }
-
-  @media (max-width: 768px) {
-    .event-step.left,
-    .event-step.right {
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-    }
   }
 </style>
