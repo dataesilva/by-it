@@ -1,4 +1,4 @@
-# By It — Interactive Timeline
+# Batoto Yety Interactive — Interactive Timeline
 
 A scroll-driven, interactive historical/narrative timeline website. The reader
 scrolls through a flowing timeline of events while a persistent map flies to
