@@ -14,8 +14,8 @@
   --color-bubble-border: #d9c9a8;
 
   /* Type */
-  --font-display: Georgia, 'Times New Roman', serif;
-  --font-body: system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Bebas Neue', Georgia, 'Times New Roman', serif;
+  --font-body: 'Pontano Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* Layout */
   --map-height: 35vh;
