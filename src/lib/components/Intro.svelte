@@ -1,9 +1,12 @@
 <script>
   import { site, character } from '../data.js'
   import CharacterGuide from './character/CharacterGuide.svelte'
+  import NavBar from './NavBar.svelte'
 </script>
 
 <section class="intro">
+  <NavBar />
+
   <h1>{site.title}</h1>
   <p class="tagline">{site.tagline}</p>
   <p class="intro-text">{site.intro}</p>
@@ -17,6 +20,7 @@
 
 <style>
   .intro {
+    position: relative;
     min-height: 100vh;
     display: flex;
     flex-direction: column;

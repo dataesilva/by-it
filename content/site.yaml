@@ -7,6 +7,15 @@ intro: >
   look out for. Scroll down to begin the journey — the map above will follow
   along, and your guide will meet you on the way.
 
+# Top nav bar, shown only in the intro. Placeholder links — pages TBD.
+nav:
+  - label: "Page One"
+    href: "#"
+  - label: "Page Two"
+    href: "#"
+  - label: "Page Three"
+    href: "#"
+
 # Initial map view before any event is active.
 map:
   lat: 30
