@@ -6,9 +6,10 @@
   import { activeEventIndex } from '../stores.js'
 
   let mapEl
+  let mapPanelEl
 
   onMount(() => {
-    const map = L.map(mapEl, { zoomControl: false })
+    const map = L.map(mapEl, { zoomControl: false, scrollWheelZoom: false })
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution:
         '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
@@ -51,14 +52,27 @@
       if (loc) map.flyTo([loc.lat, loc.lng], loc.zoom ?? 8, { duration: 1.4 })
     })
 
+    // Leaflet's wheel-zoom would otherwise hijack the scroll while the sticky
+    // panel is still sliding up to the top. Only allow it once the panel has
+    // docked (its top has reached the viewport top); disable it again if the
+    // reader scrolls back up into the intro.
+    const syncWheelZoom = () => {
+      const docked = mapPanelEl.getBoundingClientRect().top <= 0
+      if (docked) map.scrollWheelZoom.enable()
+      else map.scrollWheelZoom.disable()
+    }
+    window.addEventListener('scroll', syncWheelZoom, { passive: true })
+    syncWheelZoom()
+
     return () => {
+      window.removeEventListener('scroll', syncWheelZoom)
       unsubscribe()
       map.remove()
     }
   })
 </script>
 
-<div class="map-panel">
+<div class="map-panel" bind:this={mapPanelEl}>
   <div class="map" bind:this={mapEl}></div>
 </div>
 
