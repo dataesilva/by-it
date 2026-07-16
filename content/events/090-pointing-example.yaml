@@ -1,0 +1,20 @@
+id: pointing-example
+date: 1900-06-15
+dateLabel: "Mid-1900"
+title: "Look Over Here"
+location: { lat: 48.8566, lng: 2.3522, zoom: 12, label: "Paris, France" }
+side: auto
+media:
+  - type: image
+    src: media/placeholder-1.svg
+    caption: "Placeholder image — this is where the character points!"
+body: >
+  This is a dummy event showcasing the pointing pose. The guide character
+  will appear on the side with an outstretched arm, directing attention to
+  the content. Replace this text and image with real story beats.
+narration:
+  pose: pointing
+  text: "Pay attention! This is what I want to show you."
+  extra:
+    - "Click me for more details about what I'm pointing at."
+    - "That's the key moment right there."
