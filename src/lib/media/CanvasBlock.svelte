@@ -20,7 +20,7 @@
         if (x === 0) ctx.moveTo(x, y)
         else ctx.lineTo(x, y)
       }
-      ctx.strokeStyle = '#b3542d'
+      ctx.strokeStyle = '#50B715'
       ctx.lineWidth = 3
       ctx.lineCap = 'round'
       ctx.stroke()

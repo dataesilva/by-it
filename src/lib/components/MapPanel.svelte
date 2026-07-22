@@ -25,8 +25,8 @@
         ? L.circleMarker([e.location.lat, e.location.lng], {
             radius: 6,
             weight: 2,
-            color: '#b3542d',
-            fillColor: '#e9c9b8',
+            color: '#50B715',
+            fillColor: '#FFA200',
             fillOpacity: 0.6,
             opacity: 0.5,
           })
@@ -45,7 +45,7 @@
           radius: isActive ? 9 : 6,
           opacity: isActive ? 1 : 0.5,
           fillOpacity: isActive ? 0.9 : 0.6,
-          fillColor: isActive ? '#b3542d' : '#e9c9b8',
+          fillColor: isActive ? '#50B715' : '#FFA200',
         })
       })
       const loc = events[i]?.location

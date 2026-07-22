@@ -17,6 +17,7 @@
     left: 0;
     right: 0;
     padding: 1.5rem;
+    background: var(--color-ink);
   }
 
   ul {
@@ -29,16 +30,16 @@
   }
 
   a {
-    color: var(--color-ink);
-    font-family: var(--font-body);
-    font-size: 0.95rem;
+    color: var(--color-bg);
+    font-family: var(--font-display);
+    font-size: 1.25rem;
     text-decoration: none;
     letter-spacing: 0.02em;
   }
 
   a:hover,
   a:focus-visible {
-    color: var(--color-accent);
+    color: var(--color-muted);
   }
 
   @media (max-width: 768px) {

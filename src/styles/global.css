@@ -3,13 +3,13 @@
    feel here first; components read these variables instead of hard-coding.
 --------------------------------------------------------------------------- */
 :root {
-  /* Palette (placeholder — swap freely) */
-  --color-bg: #faf7f2;
-  --color-ink: #2b2620;
-  --color-muted: #8a8177;
+  /* Palette */
+  --color-bg: #FAFDE7;
+  --color-ink: #5f0907;
+  --color-muted: #333333;
   --color-card: #ffffff;
-  --color-accent: #b3542d;        /* timeline spine, active states */
-  --color-accent-soft: #e9c9b8;
+  --color-accent: #50B715;        /* timeline spine, active states */
+  --color-accent-soft: #FFA200;   /* complementary accent — inactive states, soft highlights */
   --color-bubble: #fff8ec;
   --color-bubble-border: #d9c9a8;
 
@@ -70,7 +70,7 @@ iframe {
 }
 
 a {
-  color: var(--color-accent);
+  color: var(--color-ink);
 }
 
 /* ---------------------------------------------------------------------------
