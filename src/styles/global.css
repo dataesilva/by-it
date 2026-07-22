@@ -8,7 +8,7 @@
   --color-ink: #5f0907;
   --color-muted: #333333;
   --color-card: #ffffff;
-  --color-accent: #50B715;        /* timeline spine, active states */
+  --color-accent: #5f0907; /* #50B715; */        /* timeline spine, active states */
   --color-accent-soft: #FFA200;   /* complementary accent — inactive states, soft highlights */
   --color-bubble: #fff8ec;
   --color-bubble-border: #d9c9a8;
