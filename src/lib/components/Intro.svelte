@@ -27,11 +27,12 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 2rem 1.5rem 4rem;
+    padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem;
   }
 
   h1 {
     font-size: clamp(2.5rem, 7vw, 4.5rem);
+    letter-spacing: 0.03em;
     margin: 0;
   }
 
@@ -62,5 +63,11 @@
   @keyframes bob {
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(8px); }
+  }
+
+  @media (max-width: 768px) {
+    .intro {
+      padding: calc(var(--nav-height) + 1.25rem) 1.25rem 3rem;
+    }
   }
 </style>

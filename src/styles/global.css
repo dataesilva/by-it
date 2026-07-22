@@ -18,6 +18,7 @@
   --font-body: 'Pontano Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
 
   /* Layout */
+  --nav-height: 68px;
   --map-height: 35vh;
   --event-gap: 22vh;              /* vertical breathing room between events */
   --fragment-gap: 1.75rem;        /* space between fragments within one scene */
@@ -119,6 +120,7 @@ a {
 
 @media (max-width: 768px) {
   :root {
+    --nav-height: 52px;
     --map-height: 28vh;
     --event-gap: 14vh;
     --guide-size: 76px;

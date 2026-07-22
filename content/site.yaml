@@ -1,5 +1,5 @@
 # Site-wide settings. Everything here is placeholder text — edit freely.
-title: "Batoto Yetu Interactive"
+title: "Batoto Yetu Portugal Interactive"
 tagline: "An interactive journey through time"
 intro: >
   This is the placeholder introduction. It sets the scene for the story the
@@ -9,11 +9,11 @@ intro: >
 
 # Top nav bar, shown only in the intro. Placeholder links — pages TBD.
 nav:
-  - label: "Page One"
+  - label: "Who is Dá?"
     href: "#"
-  - label: "Page Two"
+  - label: "About Us"
     href: "#"
-  - label: "Page Three"
+  - label: "Batoto Yetu Portugal"
     href: "#"
 
 # Initial map view before any event is active.

@@ -16,6 +16,11 @@
     top: 0;
     left: 0;
     right: 0;
+    z-index: 10;
+    box-sizing: border-box;
+    min-height: var(--nav-height);
+    display: flex;
+    align-items: center;
     padding: 1.5rem;
     background: var(--color-ink);
   }
@@ -26,6 +31,7 @@
     gap: 2rem;
     margin: 0;
     padding: 0;
+    width: 100%;
     list-style: none;
   }
 
