@@ -44,9 +44,25 @@
   --stage-bg: color-mix(in srgb, var(--color-ink) 40%, black);
   --stage-floor: color-mix(in srgb, var(--color-ink) 55%, black);
   --audience-ink: color-mix(in srgb, var(--color-ink) 60%, black);
+  --audience-back: color-mix(in srgb, var(--audience-ink) 62%, var(--stage-glow)); /* lighter back row for depth */
   --curtain-open-dur: 1.1s;
   --curtain-travel: 46%;         /* how far panels slide open, leaving a side drape */
   --intro-runway: 180vh;         /* scroll runway the stage pins for */
+
+  /* Curtain fabric — velvet sheen + pleats + gold trim */
+  --stage-curtain-hi: color-mix(in srgb, var(--color-ink) 80%, #ff7a5a); /* lit fold highlight */
+  --stage-fold-w: 34px;          /* pleat spacing across the drapes */
+  --curtain-trim: var(--color-accent-soft);  /* gold braid / fringe (ties to theme) */
+
+  /* Stage lighting — the spotlight dims to 0 as the curtains close (1 - curtain) */
+  --spot-color: #fff4d6;         /* warm spotlight white */
+  --spot-strength: 0.55;         /* max spotlight opacity */
+  --footlight: var(--color-accent-soft);
+  --stage-glow: color-mix(in srgb, var(--color-ink) 60%, #ff7a5a);   /* cyclorama lift behind character */
+  --stage-floor-hi: color-mix(in srgb, var(--stage-floor) 68%, #ff9a5a); /* footlit front edge of the deck */
+
+  /* Character idle motion */
+  --character-breathe-dur: 5s;
 
   /* Local to the intro stage — kept small and scoped, no collision with the
      global map (z:20) or scrubber (z:1100) since the stage is its own
@@ -56,6 +72,27 @@
   --z-stage-character: 2;
   --z-stage-curtain: 3;
   --z-stage-front: 4;
+}
+
+/* Street variant: warm muslin, no gold. Toggled by STAGE_STYLE in Stage.svelte.
+   Overrides the inherited curtain tokens for the stage subtree only when the
+   root carries `.street`; lighting tokens are left alone on purpose. */
+.stage.street {
+  --stage-curtain: #ded3bd;        /* off-white / ecru muslin */
+  --stage-curtain-dark: #c3b79c;   /* fold / hem shadow */
+  --stage-curtain-hi: #f0e8d6;     /* soft warm highlight */
+  --curtain-trim: transparent;     /* kills the gold braid + valance band */
+}
+
+/* The single curtain driver (0 = open, 1 = closed). Registering it lets the
+   load part-open TRANSITION the value once, and lets the lighting layers read
+   it as a typed <number> in calc() for their opacity. Where @property is
+   unsupported it degrades to a plain custom property: computed values still
+   work, only the one-time load glide/dim-in snaps instead of animating. */
+@property --curtain {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 0;
 }
 
 * {
@@ -144,6 +181,8 @@ a {
     --event-gap: 14vh;
     --guide-size: 76px;
     --intro-runway: 140vh;
+    --stage-fold-w: 24px;          /* tighter pleats on the smaller stage */
+    --spot-strength: 0.48;
   }
 
   /* On small screens every fragment becomes a single centered column — the
