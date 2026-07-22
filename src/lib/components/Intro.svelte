@@ -1,33 +1,42 @@
 <script>
   import { site, character } from '../data.js'
-  import CharacterGuide from './character/CharacterGuide.svelte'
+  import Stage from './intro/Stage.svelte'
   import NavBar from './NavBar.svelte'
 </script>
 
 <section class="intro">
   <NavBar />
 
-  <h1>{site.title}</h1>
-  <p class="tagline">{site.tagline}</p>
-  <p class="intro-text">{site.intro}</p>
+  <div class="intro-stage-pin">
+    <h1>{site.title}</h1>
+    <p class="tagline">{site.tagline}</p>
+    <p class="intro-text">{site.intro}</p>
 
-  <div class="guide-slot">
-    <CharacterGuide pose="default" text={character.intro} />
+    <div class="guide-slot">
+      <Stage pose="stage" text={character.intro} />
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">scroll ↓</div>
   </div>
-
-  <div class="scroll-hint" aria-hidden="true">scroll ↓</div>
 </section>
 
 <style>
   .intro {
     position: relative;
-    min-height: 100vh;
+    height: var(--intro-runway);
+  }
+
+  .intro-stage-pin {
+    --intro-pad-x: 1.5rem;
+    position: sticky;
+    top: 0;
+    height: 100dvh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: calc(var(--nav-height) + 2rem) 1.5rem 4rem;
+    padding: calc(var(--nav-height) + 2rem) var(--intro-pad-x) 4rem;
   }
 
   h1 {
@@ -48,7 +57,10 @@
   }
 
   .guide-slot {
+    align-self: stretch;
+    width: calc(100% + 2 * var(--intro-pad-x));
     margin-top: 2.5rem;
+    margin-inline: calc(-1 * var(--intro-pad-x));
   }
 
   .scroll-hint {
@@ -66,8 +78,9 @@
   }
 
   @media (max-width: 768px) {
-    .intro {
-      padding: calc(var(--nav-height) + 1.25rem) 1.25rem 3rem;
+    .intro-stage-pin {
+      --intro-pad-x: 1.25rem;
+      padding: calc(var(--nav-height) + 1.25rem) var(--intro-pad-x) 3rem;
     }
   }
 </style>

@@ -8,7 +8,7 @@
   --color-ink: #5f0907;
   --color-muted: #333333;
   --color-card: #ffffff;
-  --color-accent: #5f0907; /* #50B715; */        /* timeline spine, active states */
+  --color-accent: #5f0907; /* #50B715; */        /* timeline spine, active states students decided to remove the green accent */
   --color-accent-soft: #FFA200;   /* complementary accent — inactive states, soft highlights */
   --color-bubble: #fff8ec;
   --color-bubble-border: #d9c9a8;
@@ -37,6 +37,25 @@
   /* Guide character */
   --guide-size: 104px;
   --guide-bubble-width: 240px;
+
+  /* Intro stage / curtain — derived from the ink color so it stays on-theme */
+  --stage-curtain: var(--color-ink);
+  --stage-curtain-dark: color-mix(in srgb, var(--color-ink) 70%, black);
+  --stage-bg: color-mix(in srgb, var(--color-ink) 40%, black);
+  --stage-floor: color-mix(in srgb, var(--color-ink) 55%, black);
+  --audience-ink: color-mix(in srgb, var(--color-ink) 60%, black);
+  --curtain-open-dur: 1.1s;
+  --curtain-travel: 46%;         /* how far panels slide open, leaving a side drape */
+  --intro-runway: 180vh;         /* scroll runway the stage pins for */
+
+  /* Local to the intro stage — kept small and scoped, no collision with the
+     global map (z:20) or scrubber (z:1100) since the stage is its own
+     stacking context above `.story`. */
+  --z-stage-back: 0;
+  --z-stage-floor: 1;
+  --z-stage-character: 2;
+  --z-stage-curtain: 3;
+  --z-stage-front: 4;
 }
 
 * {
@@ -124,6 +143,7 @@ a {
     --map-height: 28vh;
     --event-gap: 14vh;
     --guide-size: 76px;
+    --intro-runway: 140vh;
   }
 
   /* On small screens every fragment becomes a single centered column — the

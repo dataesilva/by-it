@@ -6,6 +6,8 @@ poses:
   default: media/character/default.svg
   pointing: media/character/pointing.svg
   thinking: media/character/thinking.svg
+  # Placeholder — swap for the real stage still (public/media/character/stage.png).
+  stage: media/character/default.svg
 
 # Spoken in the intro section, before the first event.
 intro: >
