@@ -100,6 +100,7 @@
 <style>
   .stage {
     --curtain: 0; /* 0 = open, 1 = closed — default open so JS/CSS failure never strands it shut */
+    --curtain-overlap-trim: 3%; /* per-side pull-back at full close; trims the final overlap only */
     position: relative;
     isolation: isolate; /* own stacking context for the --z-stage-* layers */
     /* Height-driven, not width-driven: keeps the stage (+ copy above it)
@@ -209,7 +210,7 @@
   .stage-character {
     position: absolute;
     left: 50%;
-    bottom: 6%;
+    bottom: 20%;
     transform: translateX(-50%);
     z-index: var(--z-stage-character);
     --guide-size: clamp(120px, 18dvh, 220px);
@@ -283,14 +284,16 @@
 
   .panel-left {
     left: 0;
-    transform: translateX(calc((var(--curtain) - 1) * var(--curtain-travel)))
+    transform: translateX(calc((var(--curtain) - 1) * var(--curtain-travel)
+        - var(--curtain) * var(--curtain-overlap-trim)))
       skewX(calc(var(--curtain) * 0.6deg));
   }
   .panel-left::after { right: 0; }
 
   .panel-right {
     right: 0;
-    transform: translateX(calc((1 - var(--curtain)) * var(--curtain-travel)))
+    transform: translateX(calc((1 - var(--curtain)) * var(--curtain-travel)
+        + var(--curtain) * var(--curtain-overlap-trim)))
       skewX(calc(var(--curtain) * -0.6deg));
   }
   .panel-right::after { left: 0; }

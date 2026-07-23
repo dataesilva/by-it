@@ -4,14 +4,21 @@
 name: Guide
 poses:
   default: media/character/default.svg
-  pointing: media/character/pointing.svg
-  thinking: media/character/thinking.svg
+  jump: media/character/jump.png
+  twirl: media/character/twirl.png
+  down: media/character/down.png
+  fist: media/character/fist.png
+  neutral: media/character/neutral.png
+  sad1: media/character/sad1.png
+  sad2: media/character/sad2.png
+  up: media/character/up.png
+  wave: media/character/wave.png
   # Placeholder — swap for the real stage still (public/media/character/stage.png).
-  stage: media/character/default.svg
+  stage: media/character/twirl.png
 
 # Spoken in the intro section, before the first event.
 intro: >
-  Hello! I'm your guide — a placeholder for the character you'll design.
-  Scroll on and I'll walk you through the story, pointing out what matters
-  along the way. Click me whenever you see the little dot: it means I have
-  more to say.
+  Olá! My name is Dá, and I am storyteller or griot regarding the African culture in Portugal.
+  I tell the stories and legends of my ancestors that have been lost.
+  I can reconnect with them through dancing. Come with me as I inform the audience of my current
+  show about my culture through dance. Click here to learn more about me.

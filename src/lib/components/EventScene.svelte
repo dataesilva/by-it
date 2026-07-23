@@ -1,6 +1,7 @@
 <script>
   import { reveal } from '../actions/reveal.js'
   import { resolvePlacements, resolveTitlePlacement } from '../layout.js'
+  import { renderInline } from '../inline.js'
   import Fragment from './Fragment.svelte'
   import CharacterGuide from './character/CharacterGuide.svelte'
 
@@ -29,7 +30,7 @@
     use:reveal
   >
     <time datetime={event.date}>{event.dateLabel ?? event.date}</time>
-    <h2>{event.title}</h2>
+    <h2>{@html renderInline(event.title)}</h2>
     {#if event.location?.label}
       <p class="loc">{event.location.label}</p>
     {/if}
@@ -81,6 +82,13 @@
   h2 {
     margin: 0.25rem 0;
     font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+  }
+
+  /* Inline links authored via [label](url) in an event title. Keep the
+     heading's color; underline so it still reads as a link. */
+  h2 :global(a) {
+    color: inherit;
+    text-decoration: underline;
   }
 
   .loc {

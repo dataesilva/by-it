@@ -3,13 +3,17 @@ date: 1815-06-18
 dateLabel: "Summer 1815"
 title: "A Turning Point"
 location: { lat: 48.8566, lng: 2.3522, zoom: 10, label: "Paris, France" }
-side: auto
-media:
+layout: scatter
+titlePlace: {side: auto }
+narration: { pose: wave, text: ..... }
+content:
   - type: image
-    src: media/placeholder-2.svg
-    caption: "Placeholder — a painting, map detail, or document scan works well here."
-body: >
-  Placeholder for a pivotal event. This card demonstrates a simple
-  image-plus-text layout, the bread and butter of the timeline.
+    src: media/photo.painting
+    place: { side: left, width: narrow }
+  - type: text
+    variant: prose
+    text: >
+      Placeholder for a pivotal event. This card demonstrates a simple
+      image-plus-text layout, the bread and butter of the timeline.
 links:
   - { label: "Further reading (placeholder)", url: "https://en.wikipedia.org" }

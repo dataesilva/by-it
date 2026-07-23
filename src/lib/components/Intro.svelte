@@ -1,5 +1,6 @@
 <script>
   import { site, character } from '../data.js'
+  import { renderInline } from '../inline.js'
   import Stage from './intro/Stage.svelte'
   import NavBar from './NavBar.svelte'
 </script>
@@ -8,9 +9,9 @@
   <NavBar />
 
   <div class="intro-stage-pin">
-    <h1>{site.title}</h1>
+    <h1>{@html renderInline(site.title)}</h1>
     <p class="tagline">{site.tagline}</p>
-    <p class="intro-text">{site.intro}</p>
+    <p class="intro-text">{@html renderInline(site.intro)}</p>
 
     <div class="guide-slot">
       <Stage pose="stage" text={character.intro} />
@@ -52,8 +53,15 @@
   }
 
   .intro-text {
+    color : var(--color-muted);
     max-width: 42rem;
     font-size: 1.05rem;
+  }
+
+  /* Inline links authored via [label](url) in site.title / site.intro. */
+  .intro-stage-pin :global(a) {
+    color: var(--color-accent);
+    text-decoration: underline;
   }
 
   .guide-slot {

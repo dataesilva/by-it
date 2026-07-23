@@ -1,0 +1,21 @@
+id: beginning
+date: Far back then.
+dateLabel: "4,000 Years Ago"
+title: "The Beginning"
+location: { lat: 34.03260, lng: 9.426968, zoom: 5, label: "Carthage, modern day Tunisia" }
+side: auto
+media:
+  - type: image
+    src: media/placeholder-1.svg
+    caption: "Carthage, modern day Tunisia."
+body: >
+  Our story starts over 4,000 years ago in the Bronze Age (2000 BC–878 BC). This age was filled with
+  economic power emerging in specific eras. Where the strong settlements overtook the lower
+  settlements with their significant power. Native Elites rose to the top through trade and
+  valuing relationships with Phoenicians as they came to Olispio over the next few hundred years.  
+narration:
+  pose: jump
+  text: >
+    Long ago, the roots of Africa were formed in small villages connected to the Chalcolithic
+    network. These villages had strong foundations that allowed their people to have control
+    over the land and be protected against attacks.

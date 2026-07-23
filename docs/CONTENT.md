@@ -28,7 +28,7 @@ media:                    # optional — list of media items, shown in order
     caption: "Shown under the media"
     alt: "For screen readers (images)"
 body: >                   # optional prose paragraph
-  The main text of the event.
+  The main text of the event. Inline [links](https://example.org) use Markdown.
 links:                    # optional external links
   - { label: "Further reading", url: "https://example.org" }
 narration:                # optional — the guide appears at this event
@@ -105,7 +105,7 @@ On phones (≤768px) every fragment collapses to a single centered column and
 | image  | `src`, `caption`, `alt` | png/jpg/svg/webp under `public/` or a URL |
 | video  | `src`, `caption`, `poster` | native `<video>` player |
 | embed  | `src`, `caption`, `aspectRatio` | any iframe URL (YouTube, archive viewers, maps); default aspect 16/9 |
-| text   | `text`, `variant`, `caption` | `variant: prose` (default) floats a paragraph; `variant: quote` styles a pull-quote |
+| text   | `text`, `variant`, `caption` | `variant: prose` (default) floats a paragraph; `variant: quote` styles a pull-quote. Inline `[label](url)` Markdown becomes a link |
 | canvas | `caption` | runs `src/lib/media/CanvasBlock.svelte` — the hook for custom interactive pieces |
 
 **Adding a new media type:** create a component in `src/lib/media/` (copy
@@ -136,7 +136,8 @@ intro: "Spoken in the intro section."
 ## Site-wide text and the map's starting view
 
 Edit `content/site.yaml` — title, tagline, intro paragraph, and the map's
-initial lat/lng/zoom before any event is active.
+initial lat/lng/zoom before any event is active. The `title` and `intro` fields
+(like event titles and prose) accept inline `[label](url)` Markdown links.
 
 ## Look and feel
 

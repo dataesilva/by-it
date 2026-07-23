@@ -1,0 +1,19 @@
+id: muslim-presence
+date: 711-714
+dateLabel: "711-714"
+title: "The Beginning of the Muslim Presence"
+location: { lat: 38.736716, lng: -9.141129, zoom: 10, label: "Iberian Peninsula" }
+side: left
+media:
+  - type: image
+    src: media/placeholder-2.svg
+    caption: "Al-Ushbuna, modern day Lisbon."
+body: >
+  The path forges forward with the Almoravid (1086) and Almohad (1145) dynasties in Al-Andalus, 
+  swayed by African influence. Amazigh or Berber settlements were swallowed by the numbers of Yemen, 
+  Egypt, and Syria, even though they were in the Iberian Peninsula before the Muslin conquest of 711-714.
+narration:
+  pose: wave
+  text: > 
+    Pope Victor I (188-199) made history as the first African pope. Beginning his journey as a 
+    bishop of Rome, serving the city of Leptis Magna and the region of Tripolitania. Its prophecies to pass in 199.

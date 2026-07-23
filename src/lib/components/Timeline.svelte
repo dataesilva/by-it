@@ -12,7 +12,7 @@
   )
 
   let container = $state(null)
-  let stepEls = []
+  let stepEls = $state([])
   let anchors = $state([])
   let size = $state({ width: 0, height: 0 })
 
