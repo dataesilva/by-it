@@ -4,3 +4,8 @@ import { writable } from 'svelte/store'
 // in the intro. Scrollama (in Timeline.svelte) is the single writer; the map,
 // scrubber, and character all react to it — one-way data flow.
 export const activeEventIndex = writable(-1)
+
+// True once the reader has scrolled past the last event into the conclusion
+// section. Written only by Conclusion.svelte; NavScrubber reads it to hide the
+// scrubber over the closing section — same one-way data flow.
+export const atConclusion = writable(false)

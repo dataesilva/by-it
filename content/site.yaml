@@ -16,6 +16,25 @@ nav:
   - label: "Batoto Yetu Portugal"
     href: "#"
 
+# Closing section shown after the last event, once the map has scrolled away.
+# Placeholder text — edit freely.
+conclusion:
+  title: "The journey continues"
+  tagline: "Thank you for scrolling through"
+  text: >
+    This is the placeholder conclusion. It closes the story the timeline told and
+    points the reader onward — a moment to reflect before following the links below
+    to learn more, get involved, or explore related work.
+
+# Footer bar, shown at the very bottom of the page. Placeholder links — pages TBD.
+footer:
+  - label: "Learn more"
+    href: "#"
+  - label: "Get involved"
+    href: "#"
+  - label: "Contact"
+    href: "#"
+
 # Initial map view before any event is active.
 map:
   lat: 30

@@ -1,13 +1,13 @@
 <script>
   import { events } from '../data.js'
-  import { activeEventIndex } from '../stores.js'
+  import { activeEventIndex, atConclusion } from '../stores.js'
 
   function goTo(i) {
     document.getElementById(`event-${i}`)?.scrollIntoView({ behavior: 'smooth', block: 'center' })
   }
 </script>
 
-<nav class="scrubber" aria-label="Timeline navigation">
+<nav class="scrubber" class:hidden={$atConclusion} aria-label="Timeline navigation">
   {#each events as event, i (event.id)}
     <button
       class="dot"
@@ -40,6 +40,14 @@
     transform: translateY(-50%);
     flex-direction: column;
     align-items: center;
+
+    transition: opacity 0.3s ease;
+  }
+
+  /* Hidden once the reader reaches the conclusion section. */
+  .scrubber.hidden {
+    opacity: 0;
+    pointer-events: none;
   }
 
   .dot {
