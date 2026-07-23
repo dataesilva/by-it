@@ -1,0 +1,36 @@
+# The "Who is Dá?" character introduction page.
+# Dá is the site's narrator — a griot who tells the story of African culture in
+# Portugal through dance. Edit this copy freely; the page reads it via data.js.
+heading: "Who is Dá?"
+
+# Bio paragraphs, rendered in order. Inline [label](url) links are supported.
+paragraphs:
+  - >
+    This page is dedicated toward the backstory of our narrator, Dá, who is a
+    nineteen-year-old Portuguese young woman. Her background mainly stems from her
+    father who is from Cape Verde and her mother who is from Brazil. Dá supports the
+    rights of humanity and culture through dancing, which teaches others about her
+    and her ancestors' experiences. Her hope is to bring light to the African history
+    that has been lost throughout time as well as the history already known.
+  - >
+    If you'd ask anyone that knows her, they'd tell you the best stories to hear are
+    the ones of Dá, as they are the most unforgettable. She is known as a very
+    blissful and caring person. Who has always made an effort to support those around
+    her with physical movement, her actions, or caring words.
+  - >
+    She first started dancing at five years old, being taught by her grandmother. As
+    she grew older and her passion blossomed, Dá started performing around the world
+    with the purpose of inspiring others through dance. While she dances, Dá embodies
+    her ancestor's past dances and their presence, informing the audience of her
+    culture’s history. Through her dances she also tells the audience the legends and
+    stories of her community. Dá carries these stories and legends that have been
+    passed down through generations. Throughout her career she aims to perform dances
+    that show the reliance of her culture throughout history.
+
+# Pull-quote surfaced by designs that use one.
+quote: "The best stories to hear are the ones of Dá, as they are the most unforgettable."
+
+# Call to action back to the main interactive map (hash route → the story).
+cta:
+  text: "Click here to see Dá tell the story of the African culture and history in Portugal"
+  href: "#/"

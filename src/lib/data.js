@@ -3,6 +3,7 @@
 // without changes rippling through components.
 import site from '../../content/site.yaml'
 import character from '../../content/character.yaml'
+import da from '../../content/da.yaml'
 
 // Every YAML file in content/events becomes one timeline event.
 // Files are sorted by filename (010-, 020-, ...) so authors control order by naming.
@@ -47,7 +48,7 @@ export const events = Object.keys(modules)
   .sort()
   .map((path) => normalizeEvent(modules[path].default))
 
-export { site, character }
+export { site, character, da }
 
 // Resolve a content-relative media path (e.g. "media/foo.png" under /public)
 // against the deployment base URL, so paths work at both "/" and "/repo-name/".
