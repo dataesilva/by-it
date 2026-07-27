@@ -1,0 +1,15 @@
+id: transatlantic slave trade
+date: 1400s
+dateLabel: "1440s"
+title: The Start of the Transatlantic Slave Trade
+location: { lat: 37.099942, lng: -8.675636, zoom: 11, label: "Lagos, Portugal" }
+side: auto
+  
+body: >
+  Portuguese sailors swiftly kidnapped Berber captives from the Saharan coast in 1441, bringing them back
+  to Portugal. In three years' time, 235 captives of my people (men, women, and children) from present-day
+  Mauritania were forced to emerge in Lagos, on the Algarve coast, after being kidnapped in Portuguese raids. What took place on
+  the crossing to Lagos is considered the start of the transatlantic slave trade by the Portuguese and Brazil.
+narration:
+  pose: thinking
+  text: "After the Wars over the Iberian Peninsula and the invasions of Ceuta marked the start of a dark turn for my people."

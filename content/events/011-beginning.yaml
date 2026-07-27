@@ -1,8 +1,8 @@
-id: beginning
+id: the-story-begins  # TODO: duplicate id, rename one (also used in 010-template.yaml)
 date: Far back then.
 dateLabel: "4,000 Years Ago"
 title: "The Beginning"
-location: { lat: 34.03260, lng: 9.426968, zoom: 5, label: "Carthage, modern day Tunisia" }
+location: { lat: 34.03260, lng: 9.426968, zoom: 11, label: "Carthage, modern day Tunisia" }
 side: auto
 media:
   - type: image
@@ -14,7 +14,7 @@ body: >
   settlements with their significant power. Native Elites rose to the top through trade and
   valuing relationships with Phoenicians as they came to Olispio over the next few hundred years.  
 narration:
-  pose: jump
+  pose: default
   text: >
     Long ago, the roots of Africa were formed in small villages connected to the Chalcolithic
     network. These villages had strong foundations that allowed their people to have control

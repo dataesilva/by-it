@@ -1,0 +1,12 @@
+id: batotoyetudiscovery
+date: 1996
+dateLabel: "1996"
+title: "Batoto Yetu Portugal is Created"
+location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
+side: auto
+body: >
+  "In 1996, the association Batoto Yetu is created. This organization is aimed to help educated 
+  and inform the world about the African culture and history that has existed throughout time.  
+media:
+  - type: image
+    src: media/placeholder-1.svg  # TODO: logo

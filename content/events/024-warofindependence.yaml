@@ -1,0 +1,14 @@
+id: warofindepence 
+date: 1961
+dateLabel: "1961"
+title: "War of Independence"
+location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" } #How can we add all the colonies
+side: auto
+body: >
+  "As freedom and liberty spread, more countries wanted independence, specifically
+  regarding colonial rule throughout the land. This started the war for the independence
+  of the countries under Portuguese's colonial rule (Huambo, Angola)."
+narration:
+  pose: pointing
+  text: "Pay attention! This is what I want to show you."
+# will be above the next event - may have to make one event

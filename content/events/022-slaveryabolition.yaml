@@ -1,0 +1,10 @@
+id: slaveryabolition
+date: 1869
+dateLabel: "1869"
+title: "Slavery Abolition"
+location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
+# this is the same location because it is laid out from the previous event in a horizontal line, find design for inspo
+side: auto
+body: >
+ "Years down the road, Slavery is abolished in all domains of the Portuguese 
+ empire. This allows for the liberation and freedom of my people!"

@@ -1,0 +1,12 @@
+id: roman pontifiex
+date: 1454 
+dateLabel: 1454
+title:  # TODO: fill in title
+location: { lat: 41.685876, lng: 12.624269, zoom: 8, label: "Italy" }
+side: auto
+narration:
+  pose: pointing
+  text: "Moving further, in the Roman Empire, Pope Nicholas V, (1397-1455), granted the
+    “Romanus Pontifex” in 1454 to the Portuguese crown. Or, in less fancy terms, 
+    he told his explorers that they had the right to explore the African and Atlantic 
+    coasts south of Cape Bojidar."

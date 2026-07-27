@@ -1,0 +1,13 @@
+id: outlawslavetrafficking
+date: 1836
+dateLabel: "1836"
+title: "Outlawing Slave Trade"
+location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
+side: auto
+body: >
+  "Continuing the liberation of my people, Portugal outlawed the trafficking 
+  of enslaved people and slave trade in all areas of their empire, 
+  including Brazil."
+narration:
+  pose: pointing
+  text:  # TODO: add narration text

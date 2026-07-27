@@ -1,0 +1,13 @@
+id: slavery prohibiton
+date: 1761
+dateLabel: "1761"
+title: "Slavery Prohibition"
+location: {  lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
+side: auto
+media:
+  - type: image
+    src: media/placeholder-1.svg  # TODO: image to represent
+    caption: 
+body: >
+  Down through the years, Portugal banned the importation of enslaved people into the mainland, 
+  known as the Prohibition of the Introduction of New enslaved Persons into the Metropolis.

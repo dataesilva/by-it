@@ -1,4 +1,4 @@
-id: invasions
+id: Invasions
 date: 11th-15th Century
 dateLabel: "700 years later"
 title: Invasions
@@ -6,7 +6,7 @@ location: { lat: 35.886775, lng: -5.341396, zoom: 11, label: "Ceuta, Spain" }
 side: auto
 media:
   - type: image
-    src: #Wills ocean ship graphic
+    src: media/placeholder-1.svg  # TODO: Wills ocean ship graphic
     alt: Ocean with Portugeuse ships
 body: >
   As time passes, the Middle Ages began. Starting our journey in Late 11th and Mid 12th Century, the Amazigh or Berber dynasties 

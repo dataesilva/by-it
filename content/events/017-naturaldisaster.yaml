@@ -1,0 +1,17 @@
+id: PortugalNaturalDisaster
+date: "1755-1760"
+dateLabel: "1755-1760"
+title: "300 Years Later"
+location: { lat: 39.228222, lng: -8.060379, label: "Portugal" }
+side: auto
+media:
+  - type: image
+    src: media/placeholder-1.svg  # TODO: Wills graphic with the weather map
+    alt: graphic of weather map
+body: >
+  Many years later, a great disaster struck Portugal, The Great Earthquake of November 1st, 1755. This event
+   destroyed almost all of the city. Tremors and fires filled the land leaving permeant marks on the city's infrastructure
+   and cultural heritage. Many of this population was of African descent. 
+narration:
+  pose: pointing
+  text: "The graph to the left showcases the intensity of the earthquake."  

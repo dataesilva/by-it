@@ -1,0 +1,15 @@
+id: Batoto Yetu Works
+date: 2018-2024
+dateLabel: "2018-2024"
+title: "Batoto Yetu Works"
+location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
+side: auto
+body: >
+  "Through 2018- 2024 Batoto Yetu works with the city of Lisbon to create and 
+  install plaques throughout the area. Thes plaques specifically are in eras 
+  where Portugal was affected and influenced regarding the African culture. 
+  The goals of these plaues are to inform the public what the African culture 
+  when through and expired throughout Portugal history."  
+narration:
+  pose: happy?
+  text:  # TODO: add narration text

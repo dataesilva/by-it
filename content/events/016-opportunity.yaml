@@ -1,0 +1,14 @@
+id: opportunity in the azores and madeira
+date: 1475-1500s
+dateLabel: "1475-1500s"
+title: "Opportunity in The Azores and Madeira"
+location: { lat: 36.954009, lng: -15.452178, zoom: 8, label: "The Azores and Madeira, Portugal" }
+side: auto
+media:
+  - type: image
+    src: media/placeholder-1.svg  # TODO: Wills graphic with the map of Madeira and The Azores
+    alt: graphic of map
+body: >
+  Opportunities grew scarce from 1475 to 1500, and hundreds to thousands of
+   families packed their bags and turned beyond the sea to Madeira, the Azores,
+   and even as far as Hawaii. Leaving footprints of black Portuguese culture there. 
