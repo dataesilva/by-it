@@ -1,15 +1,18 @@
 id: pointing-portugalnowrepublic
 date: 1910-1918
 dateLabel: "1910-1918"
-title:  # TODO: fill in title
-location: { lat: 48.8566, lng: 2.3522, zoom: 12, label: "Paris, France" }
+title: Portugal Transitions to a Republic # TODO: fill in title
+location: { lat: 39.228222, lng: -8.060379, zoom: 6, label: "Portugal" }
 side: auto
-body: >
-  "Eventually as time passed the Portuguese crown fell and a republic was born. 
-  The Portuguese monarch was no more and instead turned into a republic. Following
-  this the first black member of parliament was elected in Portugal and served. He 
-  specifically worked to defend and fight for the rights of indigenous people in the 
-  colonial space."
+content:
+  - type: text
+    variant: quote
+    text: >
+      Eventually as time passed the Portuguese crown fell and a republic was born. 
+      The Portuguese monarch was no more and instead turned into a republic. Following
+      this the first black member of parliament was elected in Portugal and served. He 
+      specifically worked to defend and fight for the rights of indigenous people in the 
+      colonial space.
 narration:
-  pose: pointing
+  pose: fist
   text: "No More Monarchy!"

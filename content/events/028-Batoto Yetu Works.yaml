@@ -1,15 +1,24 @@
-id: Batoto Yetu Works
+id: Batoto Yetu Portugal
 date: 2018-2024
 dateLabel: "2018-2024"
-title: "Batoto Yetu Works"
+title: "Batoto Yetu Portugal Works"
 location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
 side: auto
-body: >
-  "Through 2018- 2024 Batoto Yetu works with the city of Lisbon to create and 
-  install plaques throughout the area. Thes plaques specifically are in eras 
-  where Portugal was affected and influenced regarding the African culture. 
-  The goals of these plaues are to inform the public what the African culture 
-  when through and expired throughout Portugal history."  
+content:
+  - type: text
+    variant: quote
+    text: >
+      Our journey through the African history of Portugal spans thousands of years,
+      from ancient settlements and North African influence in the Iberian Peninsula to the
+      painful era of enslavement, colonial expansion, and discrimination.
+      Yet this history is also a story of strength, survival, and lasting contributions.
+      African people helped shape Lisbon's culture, economy, architecture, and identity.
+      They rebuilt the city after the devastating earthquake of 1755, fought for freedom
+      and representation, and played an important role in Portugal's journey toward democracy.
+    
 narration:
-  pose: happy?
-  text:  # TODO: add narration text
+  pose: jump
+  text: >
+    By remembering these stories and sharing them with future generations, we can build a more
+    inclusive and hopeful future, one in which African history is recognized, celebrated, and
+    never forgotten.

@@ -37,6 +37,7 @@ narration:                # optional — the guide appears at this event
   extra:                  # optional — revealed one per click on the guide
     - "A second line."
     - "A third line."
+  place: { side: right, align: top }   # optional — where the guide stands
 ```
 
 The `media` + `body` + `links` fields above are the **simple form** — quick to
@@ -132,6 +133,26 @@ intro: "Spoken in the intro section."
 - **Dialogue:** each event's `narration.text` is spoken when that event scrolls
   into view; `narration.extra` lines reveal one at a time when the reader
   clicks the character (a pulsing dot signals there's more).
+
+### `narration.place` — where the guide stands
+
+By default the guide steps out to the side opposite the scene, vertically
+centered. When that lands it on top of a wide image, pin it instead:
+
+```yaml
+narration:
+  pose: jump
+  text: "..."
+  place: { side: right, align: top }   # both fields optional
+```
+
+| field   | values | meaning |
+|---------|--------|---------|
+| `side`  | `left` \| `center` \| `right` | which side of the event the guide stands on — defaults to the side opposite the scene |
+| `align` | `top` \| `middle` \| `bottom` | vertical slot within the event — defaults to `middle` |
+
+Like `place` on fragments, this is a desktop/laptop enhancement: on phones
+(≤768px) it's ignored and the guide stacks below the scene.
 
 ## Site-wide text and the map's starting view
 

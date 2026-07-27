@@ -18,10 +18,12 @@
     right: 0;
     z-index: 10;
     box-sizing: border-box;
+    /* Vertical padding stays out of the box so --nav-height IS the rendered
+       height — every calc(var(--nav-height) + …) offset depends on that. */
     min-height: var(--nav-height);
     display: flex;
     align-items: center;
-    padding: 1.5rem;
+    padding: 0 1.5rem;
     background: var(--color-ink);
   }
 
@@ -50,7 +52,7 @@
 
   @media (max-width: 768px) {
     .nav-bar {
-      padding: 1rem;
+      padding: 0 1rem;
     }
 
     ul {

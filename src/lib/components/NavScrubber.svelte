@@ -99,11 +99,27 @@
       flex-direction: row;
       top: auto;
       right: auto;
-      bottom: 0.75rem;
+      /* Clear the home indicator / browser toolbar that occupies the bottom
+         edge on mobile — a plain 0.75rem puts the bar underneath it. */
+      bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
       left: 50%;
       transform: translateX(-50%);
       max-width: 92vw;
       overflow-x: auto;
+    }
+
+    /* 14px is well under the minimum comfortable touch target. Grow the dot a
+       little and extend the hit area past it, so the visual rhythm is kept. */
+    .dot {
+      width: 18px;
+      height: 18px;
+    }
+
+    .dot::before {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
     }
 
     .label {

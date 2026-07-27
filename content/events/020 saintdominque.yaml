@@ -4,17 +4,22 @@ dateLabel: "1791-1803"
 title: "Revolution - Saint Dominque (Haiti)"
 location: { lat: 18.848155, lng: -72.378893, zoom: 9, label: "Saint-Dominque (Haiti)" }
 side: auto
-media:
+content:
+  - type: text
+    variant: prose
+    text: >
+      1791-1803 Marks the first black republic in history formed from a slave revolution in 
+      Saint-Dominque, modern day Haiti.  This revolt was for colonial emancipation driven by
+      the desire for freedom. The black Jacobins rose victoriously against slavery and colonialism
+      from the French Empire. This solidified the role of freedom, along with cultural and religious
+      resistance, as this revolution took place on the night of August 22nd, after the Bwa Kayiman, 
+      a voodoo ceremony in which the insurrection was planned and began. This revolution echoed around 
+      the world.
+    place: { side: left }
   - type: image
-    src: media/placeholder-1.svg  # TODO: Image or Illustration of masks for bwa kayiman
-body: >
-  1791-1803 Marks the first black republic in history formed from a slave revolution in 
-  Saint-Dominque, modern day Haiti.  This revolt was for colonial emancipation driven by
-  the desire for freedom. The black Jacobins rose victoriously against slavery and colonialism
-  from the French Empire. This solidified the role of freedom, along with cultural and religious
-  resistance, as this revolution took place on the night of August 22nd, after the Bwa Kayiman, 
-  a voodoo ceremony in which the insurrection was planned and began. This revolution echoed around 
-  the world.   
+    src: media/african-masks.png  # TODO: Image or Illustration of masks for bwa kayiman 
+    place: { side: right, width: medium }    
 narration:
-  pose: pointing
+  pose: up
   text: "This image shows masks inspired by the Bwa Kayiman voodoo ceremonies."
+  place: { side: right, align: middle}

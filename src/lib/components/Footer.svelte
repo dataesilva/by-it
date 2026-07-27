@@ -16,7 +16,9 @@
     min-height: var(--nav-height);
     display: flex;
     align-items: center;
-    padding: 1.5rem;
+    /* Matches NavBar: vertical padding out of the box so the bar renders at
+       exactly --nav-height. */
+    padding: 0 1.5rem;
     background: var(--color-ink);
   }
 
@@ -45,7 +47,7 @@
 
   @media (max-width: 768px) {
     .footer-bar {
-      padding: 1rem;
+      padding: 0 1rem;
     }
 
     ul {

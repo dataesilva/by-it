@@ -24,20 +24,35 @@
 <style>
   .intro {
     position: relative;
-    height: var(--intro-runway);
+    /* One pinned viewport plus the scrub distance. Because the sticky child is
+       exactly 100svh, the leftover scroll runway === --intro-scrub, which is
+       what Stage.svelte measures to drive the curtain. */
+    height: calc(100svh + var(--intro-scrub));
   }
 
   .intro-stage-pin {
     --intro-pad-x: 1.5rem;
     position: sticky;
     top: 0;
-    height: 100dvh;
+    height: 100svh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    /* NOT justify-content: center — on short viewports a centered flex column
+       overflows BOTH edges, sliding the h1 up under the nav bar. Auto margins
+       center it when there's free space and collapse to 0 when there isn't. */
+    justify-content: flex-start;
     text-align: center;
     padding: calc(var(--nav-height) + 2rem) var(--intro-pad-x) 4rem;
+    overflow: hidden;
+  }
+
+  .intro-stage-pin > :first-child {
+    margin-top: auto;
+  }
+
+  .intro-stage-pin > :last-child {
+    margin-bottom: auto;
   }
 
   h1 {
@@ -67,12 +82,14 @@
   .guide-slot {
     align-self: stretch;
     width: calc(100% + 2 * var(--intro-pad-x));
-    margin-top: 2.5rem;
+    /* Viewport-relative so the column can compress on short screens instead of
+       overflowing the pin. */
+    margin-top: clamp(1rem, 2.5svh, 2.5rem);
     margin-inline: calc(-1 * var(--intro-pad-x));
   }
 
   .scroll-hint {
-    margin-top: 3rem;
+    margin-top: clamp(0.75rem, 3svh, 3rem);
     color: var(--color-muted);
     letter-spacing: 0.2em;
     text-transform: uppercase;

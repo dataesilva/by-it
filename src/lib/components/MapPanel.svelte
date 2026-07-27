@@ -56,16 +56,41 @@
     // panel is still sliding up to the top. Only allow it once the panel has
     // docked (its top has reached the viewport top); disable it again if the
     // reader scrolls back up into the intro.
+    // An 8px dead zone around the dock line: without it, hovering exactly at
+    // the boundary flips wheel-zoom on and off repeatedly, and while it is on
+    // Leaflet swallows wheel events — which reads as the page refusing to
+    // scroll, and behaves differently on a trackpad (many small deltas) than a
+    // mouse wheel.
+    let wheelZoomOn = null
+    let ticking = false
+    let raf
+
     const syncWheelZoom = () => {
-      const docked = mapPanelEl.getBoundingClientRect().top <= 0
+      ticking = false
+      const top = mapPanelEl.getBoundingClientRect().top
+      const docked = wheelZoomOn ? top <= 8 : top <= -8
+      if (docked === wheelZoomOn) return
+      wheelZoomOn = docked
       if (docked) map.scrollWheelZoom.enable()
       else map.scrollWheelZoom.disable()
     }
-    window.addEventListener('scroll', syncWheelZoom, { passive: true })
+
+    // rAF-throttled: this reads layout, and an unthrottled version ran it
+    // several times per frame under high-frequency trackpad scrolling.
+    const onScroll = () => {
+      if (ticking) return
+      ticking = true
+      raf = requestAnimationFrame(syncWheelZoom)
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll)
     syncWheelZoom()
 
     return () => {
-      window.removeEventListener('scroll', syncWheelZoom)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      cancelAnimationFrame(raf)
       unsubscribe()
       map.remove()
     }

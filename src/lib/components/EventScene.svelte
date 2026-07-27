@@ -1,6 +1,6 @@
 <script>
   import { reveal } from '../actions/reveal.js'
-  import { resolvePlacements, resolveTitlePlacement } from '../layout.js'
+  import { resolvePlacements, resolveTitlePlacement, resolveGuidePlacement } from '../layout.js'
   import { renderInline } from '../inline.js'
   import Fragment from './Fragment.svelte'
   import CharacterGuide from './character/CharacterGuide.svelte'
@@ -19,8 +19,11 @@
     titlePlace.side === 'right' || titlePlace.side === 'center' ? titlePlace.side : 'left'
   )
 
-  // The guide stands on the opposite side of the scene, out by the spine.
-  const guideSide = $derived(side === 'left' ? 'right' : 'left')
+  // The guide stands out by the spine — opposite the scene unless the event
+  // pins it with `narration.place: { side, align }`.
+  const guide = $derived(resolveGuidePlacement(event.narration, side))
+  // `center` orients the figure like `right`: art first, then bubble.
+  const bubbleSide = $derived(guide.side === 'left' ? 'left' : 'right')
 </script>
 
 <div class="scene">
@@ -43,12 +46,12 @@
 
 {#if event.narration && active}
   {#key event.id}
-    <div class="guide-anchor {guideSide}">
+    <div class="guide-anchor {guide.side} {guide.align}">
       <CharacterGuide
         pose={event.narration.pose}
         text={event.narration.text}
         extra={event.narration.extra ?? []}
-        side={guideSide}
+        side={bubbleSide}
       />
     </div>
   {/key}
@@ -97,11 +100,13 @@
     font-size: 0.9rem;
   }
 
-  /* The guide floats out past the content, near the spine. */
+  /* The guide floats out past the content, near the spine. The vertical slot
+     travels as custom properties declared here rather than inline, so the
+     mobile reset below still wins — the same contract `.frag` uses. */
   .guide-anchor {
     position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
+    top: var(--guide-top, 50%);
+    transform: translateY(var(--guide-shift, -50%));
     z-index: 2;
   }
 
@@ -111,6 +116,22 @@
 
   .guide-anchor.left {
     right: 58%;
+  }
+
+  /* Centered over the scene — fold the centering shift into the vertical slot. */
+  .guide-anchor.center {
+    left: 50%;
+    transform: translate(-50%, var(--guide-shift, -50%));
+  }
+
+  .guide-anchor.top {
+    --guide-top: 0;
+    --guide-shift: 0;
+  }
+
+  .guide-anchor.bottom {
+    --guide-top: 100%;
+    --guide-shift: -100%;
   }
 
   @media (max-width: 768px) {
@@ -123,7 +144,8 @@
 
     .guide-anchor,
     .guide-anchor.left,
-    .guide-anchor.right {
+    .guide-anchor.right,
+    .guide-anchor.center {
       position: static;
       transform: none;
       margin-top: 0.75rem;

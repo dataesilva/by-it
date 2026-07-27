@@ -19,35 +19,43 @@
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v))
 
   onMount(() => {
-    // Default CSS state is open (--curtain: 0), so a JS/motion opt-out just
-    // leaves the curtains parted and skips the scroll handler entirely.
-    if (REDUCED_MOTION) return
-
-    // Part the curtains open once, on load: start closed, then transition to
-    // open on the next frame. The transition is on --curtain itself (registered
-    // via @property), so the panels AND the coupled lighting (spotlight, seam)
-    // animate together — the lights come up as the drapes part. Scroll progress
-    // at the top of the page is also ~0, so there's no fight with the close below.
-    stageEl.classList.add('opening')
-    stageEl.style.setProperty('--curtain', 1)
-    requestAnimationFrame(() => {
-      requestAnimationFrame(() => {
-        stageEl.style.setProperty('--curtain', 0)
-      })
-    })
-
     const section = stageEl.closest('.intro')
+    const pin = stageEl.closest('.intro-stage-pin')
+    // Default CSS state is open (--curtain: 0), so if the stage is ever reused
+    // outside the pinned intro we just leave the drapes parted rather than
+    // throwing on every scroll event.
+    if (!section || !pin) return
+
     let ticking = false
     let raf
+    // Set while the load glide is in flight, so scroll updates don't fight it.
+    let opening = false
+
+    // Scroll progress through the intro, 0..1. Measures both boxes rather than
+    // assuming a viewport unit: the pin is sticky, so the section height minus
+    // the pin height IS the scroll runway. Using window.innerHeight here
+    // instead made the runway drift whenever a mobile toolbar resized the
+    // viewport mid-scroll.
+    function progress() {
+      const rect = section.getBoundingClientRect()
+      const runway = rect.height - pin.offsetHeight
+      return runway > 0 ? clamp(-rect.top / runway, 0, 1) : 0
+    }
 
     function update() {
       ticking = false
-      // Drop the load transition once real scrubbing starts so tracking is immediate.
-      stageEl.classList.remove('opening')
+      const p = progress()
 
-      const rect = section.getBoundingClientRect()
-      const runway = rect.height - window.innerHeight
-      const p = runway > 0 ? clamp(-rect.top / runway, 0, 1) : 0
+      // Only drop the load transition once real scrubbing has started —
+      // removing it on the very first scroll event snapped --curtain out of
+      // its mid-glide value, which trackpad users (who flick immediately) hit
+      // far more often than wheel users.
+      if (opening) {
+        if (p <= 0.02) return
+        opening = false
+        stageEl.classList.remove('opening')
+      }
+
       // Hold-then-sweep: character stands a beat, then the curtains close.
       // Smoothstep the window so heavy fabric eases in and settles instead of
       // tracking scroll at a constant, mechanical rate.
@@ -62,10 +70,40 @@
       raf = requestAnimationFrame(update)
     }
 
+    // Part the curtains open once, on load: start closed, then transition to
+    // open on the next frame. The transition is on --curtain itself (registered
+    // via @property), so the panels AND the coupled lighting (spotlight, seam)
+    // animate together — the lights come up as the drapes part.
+    // Only worth playing if we actually loaded at the top; on a reload with a
+    // restored scroll position the curtain should already be closed, and the
+    // glide would stomp that value on its second frame.
+    // Motion opt-out skips the glide but still scrubs on scroll: that's
+    // position tracking, not self-running animation.
+    if (!REDUCED_MOTION && progress() <= 0.02) {
+      opening = true
+      stageEl.classList.add('opening')
+      stageEl.style.setProperty('--curtain', 1)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+          if (opening) stageEl.style.setProperty('--curtain', 0)
+        })
+      })
+    } else {
+      // Sync immediately so a restored scroll position renders correctly on the
+      // first frame instead of waiting for the reader to scroll.
+      update()
+    }
+
     window.addEventListener('scroll', onScroll, { passive: true })
+    // Without these the curtain holds a stale value after a resize or rotation
+    // until the reader happens to scroll again.
+    window.addEventListener('resize', onScroll)
+    window.addEventListener('orientationchange', onScroll)
 
     return () => {
       window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      window.removeEventListener('orientationchange', onScroll)
       cancelAnimationFrame(raf)
     }
   })
@@ -106,7 +144,9 @@
     /* Height-driven, not width-driven: keeps the stage (+ copy above it)
        fitting inside the pinned 100dvh viewport regardless of how much
        title/tagline/intro text sits above it. */
-    height: clamp(220px, 42dvh, 480px);
+    /* svh, not dvh: a dvh-sized element visibly resizes as a mobile toolbar
+       shows/hides. svh holds still. */
+    height: clamp(220px, 42svh, 480px);
     width: 100%;
     overflow: hidden;
   }
@@ -182,8 +222,8 @@
     left: 50%;
     bottom: 3%;
     transform: translateX(-50%);
-    width: clamp(200px, 40dvh, 460px);
-    height: clamp(48px, 12dvh, 130px);
+    width: clamp(200px, 40svh, 460px);
+    height: clamp(48px, 12svh, 130px);
     background: radial-gradient(ellipse at 50% 50%, var(--spot-color), transparent 68%);
     filter: blur(6px);
     mix-blend-mode: screen;
@@ -199,8 +239,8 @@
     left: 50%;
     bottom: 5%;
     transform: translateX(-50%);
-    width: clamp(150px, 24dvh, 280px);
-    height: clamp(20px, 5dvh, 46px);
+    width: clamp(150px, 24svh, 280px);
+    height: clamp(20px, 5svh, 46px);
     background: radial-gradient(ellipse at 50% 50%, rgba(0, 0, 0, 0.5), transparent 70%);
     filter: blur(5px);
     z-index: var(--z-stage-floor);
@@ -213,7 +253,7 @@
     bottom: 20%;
     transform: translateX(-50%);
     z-index: var(--z-stage-character);
-    --guide-size: clamp(120px, 18dvh, 220px);
+    --guide-size: clamp(120px, 18svh, 220px);
   }
 
   /* Inner wrapper carries the idle motion so the outer keeps its centering

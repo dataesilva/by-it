@@ -2,7 +2,7 @@ id: PortugalNaturalDisaster
 date: "1755-1760"
 dateLabel: "1755-1760"
 title: "300 Years Later"
-location: { lat: 39.228222, lng: -8.060379, label: "Portugal" }
+location: { lat: 39.228222, lng: -8.060379, zoom: 6, label: "Portugal" }
 side: auto
 media:
   - type: image
@@ -13,5 +13,5 @@ body: >
    destroyed almost all of the city. Tremors and fires filled the land leaving permeant marks on the city's infrastructure
    and cultural heritage. Many of this population was of African descent. 
 narration:
-  pose: pointing
+  pose: down
   text: "The graph to the left showcases the intensity of the earthquake."  

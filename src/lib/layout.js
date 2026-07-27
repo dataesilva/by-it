@@ -88,3 +88,15 @@ export function resolveTitlePlacement(titlePlace, sceneSide) {
     offsetY: titlePlace?.offsetY ?? 0,
   }
 }
+
+// Resolve where the guide stands. By default it steps out to the side opposite
+// the scene, vertically centered — an event may pin it with `narration.place`.
+// Both values travel on as CSS class names, so a typo simply matches no rule and
+// falls back to the base `.guide-anchor` position.
+export function resolveGuidePlacement(narration, sceneSide) {
+  const away = sceneSide === 'right' ? 'left' : 'right'
+  return {
+    side: narration?.place?.side ?? away,
+    align: narration?.place?.align ?? 'middle',
+  }
+}

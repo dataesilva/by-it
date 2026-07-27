@@ -2,7 +2,7 @@ id: canrationrevolution
 date: 1974
 dateLabel: "1974"
 title: "Carnation Revolution"
-location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
+location: { lat: 38.730212, lng: -9.154353, zoom: 10, label: "Parque Eduardo VII" }
 side: auto
 body: >
   "Themes of independence continue throughout the Carnation Revolution. This revolution 
@@ -11,4 +11,6 @@ body: >
   revolution spirt and fight against labor/slave exploration) which had a strong African presence."
 media:
   - type: image
-    src: media/placeholder-1.svg  # TODO: image to the left that describes the war of independence or the carnation revolution
+    src: media/april-25-statue.jpg
+    caption: Monument to the 25th of April at Parque Eduardo VII
+    place: { width: medium }

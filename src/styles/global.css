@@ -47,7 +47,12 @@
   --audience-back: color-mix(in srgb, var(--audience-ink) 62%, var(--stage-glow)); /* lighter back row for depth */
   --curtain-open-dur: 1.1s;
   --curtain-travel: 46%;         /* how far panels slide open, leaving a side drape */
-  --intro-runway: 180vh;         /* scroll runway the stage pins for */
+  /* Scroll distance the curtain scrubs over. The intro is sized
+     `calc(100svh + var(--intro-scrub))` and pins a 100svh child, so the runway
+     left over for scrubbing equals this token exactly — on every device. Tune
+     the whole intro's pacing here; `svh` (not `vh`/`dvh`) so a mobile toolbar
+     showing/hiding can't reflow the runway mid-scroll. */
+  --intro-scrub: 90svh;
 
   /* Curtain fabric — velvet sheen + pleats + gold trim */
   --stage-curtain-hi: color-mix(in srgb, var(--color-ink) 80%, #ff7a5a); /* lit fold highlight */
@@ -180,7 +185,7 @@ a {
     --map-height: 28vh;
     --event-gap: 14vh;
     --guide-size: 76px;
-    --intro-runway: 140vh;
+    --intro-scrub: 70svh;
     --stage-fold-w: 24px;          /* tighter pleats on the smaller stage */
     --spot-strength: 0.48;
   }

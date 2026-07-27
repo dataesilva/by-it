@@ -2,10 +2,16 @@ id: Francisca Van-Dunen
 date: 2015-2016
 dateLabel: "2015-2016"
 title: "Francisca Van-Dunen"
-location: { lat: 39.228222, lng: -8.060379, zoom: 8, label: "Portugal" }
+location: { lat: 39.228222, lng: -8.060379, zoom: 6, label: "Portugal" }
 side: auto
 narration:
-  pose: happy?
-  text: "Years fly by and the first black women, Francisca Van-Dunen, is selected to become the first minister of 
-    justice in Portugal XX II. The very next year the publication of an open letter from Afro 
-    descendent organization is addressed to the UN committee on the elimination of racial discrimination."
+  pose: fist 
+  text: >
+    The very next year the publication of an open letter from Afro 
+    descendent organization is addressed to the UN committee on the elimination of racial discrimination.
+content:
+  - type: text
+    variant: quote
+    text: >
+      Years fly by and the first black women, Francisca Van-Dunen, is selected to become the first minister of 
+      justice in Portugal XX II.

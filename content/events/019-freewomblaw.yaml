@@ -2,11 +2,13 @@ id: freewomblaw
 date: 1761
 dateLabel: "1761"
 title: "Free Womb Law"
-location: { lat: 39.228222, lng: -8.060379, zoom: 10, label: "Portugal" }
+location: { lat: 39.228222, lng: -8.060379, zoom: 6, label: "Portugal" }
 side: auto
-body: >
-  Alongside banning the importation of enslaved people Portugal also declared 
-  the Free Womb Law. This legislation ordered that children born to enslaved mothers 
-  were liberated but had to serve their mothers' owner until they reached adulthood.  
 narration:
-  pose: default #da dancing, no text
+  pose: jump
+  text: >
+    Twelve years later, alongside banning the importation of enslaved people Portugal also declared 
+    the Free Womb Law. This legislation ordered that children born to enslaved mothers 
+    were liberated but had to serve their mothers' owner until they reached adulthood.
+  place: { side: center }
+

@@ -52,9 +52,30 @@
       scroller.resize()
     })
     ro.observe(container)
+
+    // The ResizeObserver above only fires when the container's OWN box changes,
+    // so a viewport height-only change (vertical window resize, rotation, a
+    // mobile toolbar collapsing) never reaches scroller.resize() and the 0.55
+    // trigger line silently drifts against the old innerHeight. Debounced
+    // because resize fires in bursts and scroller.resize() re-registers every
+    // step's observer.
+    let resizeTimer
+    const onViewportResize = () => {
+      clearTimeout(resizeTimer)
+      resizeTimer = setTimeout(() => {
+        measure()
+        scroller.resize()
+      }, 150)
+    }
+    window.addEventListener('resize', onViewportResize)
+    window.addEventListener('orientationchange', onViewportResize)
+
     measure()
 
     return () => {
+      clearTimeout(resizeTimer)
+      window.removeEventListener('resize', onViewportResize)
+      window.removeEventListener('orientationchange', onViewportResize)
       ro.disconnect()
       scroller.destroy()
     }
