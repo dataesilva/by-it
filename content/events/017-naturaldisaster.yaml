@@ -6,7 +6,7 @@ location: { lat: 39.228222, lng: -8.060379, zoom: 6, label: "Portugal" }
 side: auto
 media:
   - type: image
-    src: media/placeholder-1.svg  # TODO: Wills graphic with the weather map
+    src: media/earthquake-heatmap.png  # TODO: Wills graphic with the weather map
     alt: graphic of weather map
 body: >
   Many years later, a great disaster struck Portugal, The Great Earthquake of November 1st, 1755. This event

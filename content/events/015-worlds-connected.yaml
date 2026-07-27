@@ -2,7 +2,7 @@ id: roman pontifiex
 date: 1454 
 dateLabel: 1454
 title: Romanus Pontifex # TODO: fill in title
-location: { lat: 41.685876, lng: 12.624269, zoom: 8, label: "Italy" }
+location: { lat: 41.685876, lng: 12.624269, zoom: 6, label: "Italy" }
 side: auto
 narration:
   pose: sad1
