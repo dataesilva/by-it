@@ -12,6 +12,8 @@ intro: >
 
 # Top nav bar, shown only in the intro. Placeholder links — pages TBD.
 nav:
+  - label: "Home"
+    href: '#/'
   - label: "Who is Dá?"
     href: "#/who-is-da"
   - label: "About Us"
