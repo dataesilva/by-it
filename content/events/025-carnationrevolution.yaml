@@ -5,10 +5,10 @@ title: "Carnation Revolution"
 location: { lat: 38.730212, lng: -9.154353, zoom: 10, label: "Parque Eduardo VII" }
 side: auto
 body: >
-  "Themes of independence continue throughout the Carnation Revolution. This revolution 
+  Themes of independence continue throughout the Carnation Revolution. This revolution 
   was instituted by African leaders who wanted to end colonial rule and sovereignty. The start 
   of this path to independence took place in Sado valley (area of the country with the greatest 
-  revolution spirt and fight against labor/slave exploration) which had a strong African presence."
+  revolution spirt and fight against labor/slave exploration) which had a strong African presence.
 media:
   - type: image
     src: media/april-25-statue.jpg

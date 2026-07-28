@@ -1,11 +1,11 @@
-# Batoto Yetu Interactive — Interactive Timeline
+# Batoto Yetu Portugal — Interactive Timeline
 
 A scroll-driven, interactive historical/narrative timeline website. The reader
 scrolls through a flowing timeline of events while a persistent map flies to
 each event's location and a guide character narrates the journey.
 
-**Everything currently in the site is placeholder content** — see
-[docs/CONTENT.md](docs/CONTENT.md) for how to replace it with the real story.
+**Everything currently on the site is content developed during July 2026 by a group of students from Kent State University** — see
+[docs/CONTENT.md](docs/CONTENT.md) for how to replace content and add additional elements to the timeline.
 
 ## Running locally
 
