@@ -1,9 +1,9 @@
 <script>
-  // Design 1 — "On Stage": theatrical treatment that ties back to the intro's
-  // stage metaphor. Dá dances center-stage under a spotlight; the bio reads like
-  // a theatre program.
+  // "Who is Dá?" page: theatrical treatment that ties back to the intro's stage
+  // metaphor. Dá dances center-stage under a spotlight above an editorial-style bio.
   import { da } from '../../data.js'
   import { renderInline } from '../../inline.js'
+  import { reveal } from '../../actions/reveal.js'
   import DancingDa from '../character/DancingDa.svelte'
 </script>
 
@@ -17,14 +17,16 @@
   <div class="playbill">
     <p class="eyebrow">The Program</p>
     <h1>{da.heading}</h1>
-
-    {#if da.quote}
-      <p class="marquee">“{da.quote.replace(/^["“]|["”.]$/g, '')}”</p>
-    {/if}
+    <p class="lede">A griot who tells the story of African culture in Portugal through dance.</p>
 
     <div class="prose">
-      {#each da.paragraphs as p}
-        <p>{@html renderInline(p)}</p>
+      {#each da.paragraphs as p, idx}
+        {#if idx === 1 && da.quote}
+          <blockquote use:reveal class="reveal reveal-center pull">
+            {da.quote}
+          </blockquote>
+        {/if}
+        <p use:reveal class="reveal reveal-center">{@html renderInline(p)}</p>
       {/each}
     </div>
 
@@ -37,9 +39,8 @@
 
 <style>
   .stage-design {
-    --deck-bg: var(--stage-bg, #2a0403);
-    background: var(--deck-bg);
-    color: var(--color-bg);
+    background: var(--color-bg);
+    color: var(--color-ink);
     padding: calc(var(--nav-height) + 3rem) 1.5rem 5rem;
     min-height: 100dvh;
   }
@@ -56,9 +57,9 @@
     border-radius: 8px;
     background:
       radial-gradient(120% 90% at 50% 0%,
-        color-mix(in srgb, var(--stage-glow, #7a1a10) 55%, transparent) 0%,
+        color-mix(in srgb, var(--color-accent-soft) 35%, transparent) 0%,
         transparent 60%),
-      var(--stage-floor, #3a0605);
+      var(--color-card);
     overflow: hidden;
   }
 
@@ -71,7 +72,7 @@
     height: 130%;
     background: linear-gradient(
       to bottom,
-      color-mix(in srgb, var(--spot-color, #fff4d6) 45%, transparent),
+      color-mix(in srgb, var(--color-accent-soft) 35%, transparent),
       transparent 70%
     );
     clip-path: polygon(42% 0, 58% 0, 100% 100%, 0 100%);
@@ -109,24 +110,21 @@
     font-size: clamp(2.5rem, 7vw, 4.5rem);
     letter-spacing: 0.04em;
     margin: 0 0 1rem;
-    color: var(--color-bg);
+    color: var(--color-ink);
   }
 
-  .marquee {
-    font-family: var(--font-display);
-    letter-spacing: 0.04em;
-    font-size: clamp(1.25rem, 3vw, 1.9rem);
-    color: var(--color-accent-soft);
-    border-top: 1px solid color-mix(in srgb, var(--color-accent-soft) 45%, transparent);
-    border-bottom: 1px solid color-mix(in srgb, var(--color-accent-soft) 45%, transparent);
-    padding: 0.9rem 0;
-    margin: 0 0 2rem;
+  .lede {
+    font-size: clamp(1.1rem, 2.4vw, 1.4rem);
+    color: var(--color-muted);
+    max-width: 34rem;
+    margin: 0 auto 2rem;
   }
 
   .prose {
     text-align: left;
-    color: color-mix(in srgb, var(--color-bg) 88%, var(--color-accent-soft));
+    color: var(--color-ink);
     font-size: 1.05rem;
+    line-height: 1.75;
   }
 
   .prose p {
@@ -134,7 +132,19 @@
   }
 
   .prose :global(a) {
-    color: var(--color-accent-soft);
+    color: var(--color-accent);
+  }
+
+  .pull {
+    margin: 2rem 0 2.5rem;
+    padding: 0.25rem 0 0.25rem 1.5rem;
+    border-left: 4px solid var(--color-accent-soft);
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4vw, 2.4rem);
+    line-height: 1.15;
+    letter-spacing: 0.02em;
+    color: var(--color-ink);
+    text-align: left;
   }
 
   .ticket {
